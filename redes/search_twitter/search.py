@@ -46,8 +46,8 @@ if __name__ == '__main__':
     for tweet in tweepy.Cursor(api.search,
         q="#JamonIberico OR #Jamon OR #IberiamHam OR #JamonDeBellota OR #PataNegra OR #JamonPataNegra",
         count=18000,
-        #since="2012-09-01",
-        #until="2017-04-01",
+        #since="2017-09-01",
+        #until="2018-03-01",
         lang="es").items(18000):
                 #Escribimos filas en los ficheros CSV
                 csvWriterTweets.writerow([tweet.user.id,tweet.user.screen_name, tweet.text.encode('utf-8'), tweet.user.followers_count,
