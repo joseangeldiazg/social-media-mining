@@ -1,0 +1,84 @@
+%---------------------------------------------------
+% Nombre: capitulo1.tex  
+% 
+% Texto del capitulo 1
+%---------------------------------------------------
+
+\chapter{Desarrollo práctico}
+
+La práctica número 2 de la asignatura Minería de Medios Sociales, se centra en un problema de minería de textos sobre datos obtenidos de Twitter y que será resuelto mediante la herramienta Knime \cite{knime}. Los objetivos de la práctica serán por tanto los siguientes:
+
+\begin{enumerate}
+\item Captar y preprocesar los datos provenientes de Twitter. 
+\item Aplicar transformaciones y visualización mediante Tag Cloud.
+\item Aplicar un algoritmo de minería de datos sobre los datos. 
+\end{enumerate}
+
+\section{Captación y preprocesado}
+
+En esta sección veremos el proceso y los nodos de captación de datos, así como del preprocesado de los documentos. 
+
+\subsection{Captación}
+
+La captación de los datos se ha realizado utilizando los nodos de conexión con la API de Twitter de Knime (figura \ref{1}). Estos se han captado sobre el hashtag \textbf{tengoUnMásterEn} que fue \textbf{trending topic} la tarde del 10 de mayo. Hay un total de 2967 documentos (tuits) sobre la temática. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{./Capitulo1/Imagenes/1.png}
+	\caption{Captación de datos.}
+	\label{1}
+\end{figure}
+
+Una vez captados los datos, pasamos al preprocesado de los mismos. 
+
+\subsection{Preprocesado}
+
+Para el preprocesado de los datos se han usado diversas técnicas bien definidas en el proceso de minería de textos. Tales como: 
+
+\begin{itemize}
+	\item Cambio de signos de puntuación a palabras de sentimiento, por ejemplo \textbf{ :) } pasa a \textbf{feliz}.
+	\item Paso a minúsculas.
+	\item Eliminación de palabras vacías.
+	\item Eliminación de  nombres de usuario para evitar problemas con los RT. 
+	\item Eliminación de signos de puntuación. 
+\end{itemize}
+
+Para añadir aun más valor a las posibles visualizaciones se usa un \textbf{POS Tagger} para colorear en función de la categoría gramatical de la palabra. El flujo usado para estos pasos puede verse en la figura \ref{2}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{./Capitulo1/Imagenes/2.png}
+	\caption{Prerocesado y enriquecimiento de datos.}
+	\label{2}
+\end{figure}
+
+\section{Transformaciones y visualización}
+
+Para poder visualizar los datos y trabajar con ellos, es necesario obtener representaciones intermedias de los mismos, así como algunas estadísticas sobre ellos. En el gráfico \ref{3} podemos ver el flujo usado, donde por un lado pasamos los datos a una \textbf{bolsa de palabras} \cite{b} y posteriormente calculamos sus valores \textbf{TF}, \textbf{IDF} y por medio de una simple multiplicación su valor \textbf{TF-IDF}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{./Capitulo1/Imagenes/3.png}
+	\caption{Flujo de transformación y computo de estadísticas.}
+	\label{3}
+\end{figure}
+
+El resultado final del \textit{tag cloud}, cuyos colores representan el tipo de palabra podemos verlo en la figura \ref{tag}. Si analizamos los resultados obtenidos en la nube de palabras podemos comprobar como casi la totalidad de las personas que han tuiteado sobre el hashtag lo hacen en modo mofa o broma, encontrando palabras coloquiales, lo que nos lleva a deducir que es un hashtag creado para mofarse del \textbf{caso Cifuentes}. Por otro lado, también encontramos algunas palabras como \textbf{superación, integridad, currar} que sin duda en función del hashtag que tenemos entre manos vendrá de un grupo de personas que en lugar de mofarse intentan darle valor. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{./Capitulo1/Imagenes/tag.png}
+	\caption{Tag cloud sobre el hashtag TengoUnMásterEn.}
+	\label{tag}
+\end{figure}
+
+\section{Minería de datos}
+
+En esta sección entraremos en el análisis del algoritmo de minería de datos usado y los resultados obtenidos. 
+
+\section{Conclusiones}
+
+Tras la realización de la práctica 2 de la asignatura, podemos concluir que Knime es una herramienta versátil y que nos permite utilizar innumerables técnicas  de ciencia de datos y pruebas de manera sencilla, siendo una gran `caja de herramientas'. Por otro lado, la herramienta se queda corta en diversos aspectos de rendimiento, así como limitaciones a la hora de realizar funciones más específicas ya que los nodos y repositorios de nodos son más limitados que las funciones que podemos encontrar en paquetes de R por ejemplo. 
+
+\clearpage
+%---------------------------------------------------
