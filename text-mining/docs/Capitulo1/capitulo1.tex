@@ -29,7 +29,14 @@ La captación de los datos se ha realizado utilizando los nodos de conexión con l
 	\label{1}
 \end{figure}
 
-Una vez captados los datos, pasamos al preprocesado de los mismos. 
+Una vez captados los datos, tendremos una tabla como la que podemos ver en la figura \ref{entrada} y podremos pasar al preprocesado de los mismos. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{./Capitulo1/Imagenes/entrada.png}
+	\caption{Datos de entrada.}
+	\label{entrada}
+\end{figure}
 
 \subsection{Preprocesado}
 
@@ -48,7 +55,7 @@ Para añadir aun más valor a las posibles visualizaciones se usa un \textbf{POS T
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{./Capitulo1/Imagenes/2.png}
-	\caption{Prerocesado y enriquecimiento de datos.}
+	\caption{Preprocesado y enriquecimiento de datos.}
 	\label{2}
 \end{figure}
 
@@ -74,8 +81,54 @@ El resultado final del \textit{tag cloud}, cuyos colores representan el tipo de 
 
 \section{Minería de datos}
 
-En esta sección entraremos en el análisis del algoritmo de minería de datos usado y los resultados obtenidos. 
+La finalidad de muchos procesos de minería de textos es poder aplicar tras los pasos de pre-procesado algún algoritmo de minería de datos para obtener información relevante de los mismos. En nuestro caso, nos hemos decantado por las reglas de asociación para descubrir causalidad de co-ocurrencia entre los términos de nuestros tuits para poder discernir ciertas tendencias en los datos. Para poder utilizar reglas de asociación, primeramente hemos tenido que realizar algunas  transformaciones previas mediante las cuales hemos obtenido nuestros tuits en forma de colección de transacciones en las que cada palabra de un tuit representa un ítem. Para realizar esto, hemos usado el flujo que podemos ver en en la figura \ref{tra}.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{./Capitulo1/Imagenes/tra.png}
+	\caption{Flujo para obtener transacciones.}
+	\label{tra}
+\end{figure}
+
+Una vez obtenidas las transacciones, se aplica la minería de datos (figura \ref{mining}) usando el módulo de reglas de asociación para obtener las reglas con un soporte mínimo de 0.01 y una confianza de 0.6. Tras finalizar el proceso se obtienen  un total de \textbf{20625}, ya que se ha usado el algoritmo Apriori (exhaustivo). Por último, estas reglas se han visualizado  (figura \ref{graf}) mediante el nodo \textbf{Rule Viewer}, pero hemos de decir que este nodo es bastante inútil ya que la información que ofrece pese a tener documentación no permite visualizar nada correctamente con un conjunto de reglas elevado, problema común en casi todos los métodos de visualización de reglas. Por ello, este método se descarto y se pasó al análisis de la tabla de salida con las reglas donde se puede extraer información relevante de manera sencilla ordenando las reglas en función de las medidas de bondad. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{./Capitulo1/Imagenes/mining.png}
+	\caption{Flujo de minería de datos.}
+	\label{mining}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.27]{./Capitulo1/Imagenes/graf.png}
+	\caption{Gráfico de reglas.}
+	\label{graf}
+\end{figure}
+
+Algunas reglas relevantes extraidas podrían ser las que vemos en las figuras \ref{r1}, \ref{r2} y \ref{r3}, donde podemos constatar el enfado de la sociedad con el partido del gobierno respecto a ciertos temas y que se ha aprovechado ese hashtag, relativo a mofa con el caso Cifuentes, para criticar duramente al partido en otras políticas y en materia de su posción ante el escandalo del máster.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{./Capitulo1/Imagenes/r1.png}
+	\caption{Regla 1.}
+	\label{r1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{./Capitulo1/Imagenes/r2.png}
+	\caption{Regla 2.}
+	\label{r2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.45]{./Capitulo1/Imagenes/r3.png}
+	\caption{Regla 3.}
+	\label{r3}
+	
+\end{figure}
 \section{Conclusiones}
 
 Tras la realización de la práctica 2 de la asignatura, podemos concluir que Knime es una herramienta versátil y que nos permite utilizar innumerables técnicas  de ciencia de datos y pruebas de manera sencilla, siendo una gran `caja de herramientas'. Por otro lado, la herramienta se queda corta en diversos aspectos de rendimiento, así como limitaciones a la hora de realizar funciones más específicas ya que los nodos y repositorios de nodos son más limitados que las funciones que podemos encontrar en paquetes de R por ejemplo. 

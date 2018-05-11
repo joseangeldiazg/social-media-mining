@@ -1,0 +1,8 @@
+\select@language {spanish}
+\contentsline {chapter}{\numberline {1}Desarrollo pr\'actico}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Captaci\'on y preprocesado}{3}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Captaci\'on}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Preprocesado}{4}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Transformaciones y visualizaci\'on}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}Miner\IeC {\'\i }a de datos}{6}{section.1.3}
+\contentsline {section}{\numberline {1.4}Conclusiones}{9}{section.1.4}
